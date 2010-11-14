@@ -1,0 +1,16 @@
+This is my first Rails application so please be nice to me :)
+
+This is an application to take control over those lame protocols that companies in Brazil keep giving us at each call. In this application you should be able to:
+
+* Keep track of protocols given by all companies you work with having:
+    * Protocol number
+    * Attendant's name
+    * When the protocol were emmited (Date and Time)
+    * Description field so you can keep track of what was agreed on
+* Control Protocol's Statuses
+    * Open
+    * Closed
+    * Follow Up (require furthuer action or completeness check)
+* Setup a follow up date so you can be notified and take the appropriate action
+* Add relationships to previously created protocols
+

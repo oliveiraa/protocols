@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @protocol.number %>
+</p>
+
+<p>
+  <b>Attendant name:</b>
+  <%= @protocol.attendant_name %>
+</p>
+
+<p>
+  <b>Emitted at:</b>
+  <%= @protocol.emitted_at %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @protocol.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_protocol_path(@protocol) %> |
+<%= link_to 'Back', protocols_path %>
