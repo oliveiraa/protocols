@@ -1,0 +1,5 @@
+new_protocol:
+    number: ABC123
+    attendant_name: Joana da Silva
+    emitted_at: <%= Time.now %>
+    description: Referente ao problema de atraso/nao execucao da instalacao do decoder HD da NET

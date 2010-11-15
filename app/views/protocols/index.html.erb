@@ -1,11 +1,11 @@
-<h1>Listing protocols</h1>
+<h1>Seus protocolos cadastrados</h1>
 
 <table>
   <tr>
-    <th>Number</th>
-    <th>Attendant name</th>
-    <th>Emitted at</th>
-    <th>Description</th>
+    <th>Número</th>
+    <th>Nome da(o) Atendente</th>
+    <th>Gerado em</th>
+    <th>Descricão</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,7 +15,7 @@
   <tr>
     <td><%= protocol.number %></td>
     <td><%= protocol.attendant_name %></td>
-    <td><%= protocol.emitted_at %></td>
+    <td><%= protocol.emitted_at.to_s_br %></td>
     <td><%= protocol.description %></td>
     <td><%= link_to 'Show', protocol %></td>
     <td><%= link_to 'Edit', edit_protocol_path(protocol) %></td>

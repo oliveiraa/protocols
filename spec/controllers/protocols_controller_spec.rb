@@ -2,16 +2,36 @@ require 'spec_helper'
 
 describe ProtocolsController do
 
-describe '#new' do
-    context 'given a user that wants to add a new Protocol' do
+    describe '#given a user that wants to add a new Protocol' do
+        render_views          
 
-        get :new
-
-        it 'shows an empty form' do
-            response.should be_success
+        context 'new' do
+            subject do
+                get :new
+            end
+        
+            it 'shows an empty form' do            
+                response.should be_success
+            end
         end
+
+        context 'create' do
+            fixtures :protocols
+        
+            subject do
+                Protocol.any_intance.stubs(:valid?).returns(true)            
+                post 'create'                
+            end
+
+            it 'shows a success message' do
+                flash[:notice].should_not be_nil
+            end
+            
+            it 'redirects the user to a list of protocols' do
+                response.should redirect_to(protocols_url)
+            end
+        end       
     end
-end
 
 =begin
   def mock_protocol(stubs={})

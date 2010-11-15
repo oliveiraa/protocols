@@ -1,4 +1,5 @@
 class ProtocolsController < ApplicationController
+  
   # GET /protocols
   # GET /protocols.xml
   def index
@@ -44,11 +45,9 @@ class ProtocolsController < ApplicationController
 
     respond_to do |format|
       if @protocol.save
-        format.html { redirect_to(@protocol, :notice => 'Protocol was successfully created.') }
-        format.xml  { render :xml => @protocol, :status => :created, :location => @protocol }
+        format.html { redirect_to(protocols_url, :notice => 'Protocol was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @protocol.errors, :status => :unprocessable_entity }
       end
     end
   end
