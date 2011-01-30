@@ -17,18 +17,29 @@ describe ProtocolsController do
 
         context 'create' do
             fixtures :protocols
-        
-            subject do
-                Protocol.any_intance.stubs(:valid?).returns(true)            
-                post 'create'                
+            
+            before(:each) do
+              Protocol.any_instance.stubs(:valid?).returns(true)
             end
 
             it 'shows a success message' do
-                flash[:notice].should_not be_nil
+              post :create
+              flash[:notice].should_not be_nil
             end
             
             it 'redirects the user to a list of protocols' do
-                response.should redirect_to(protocols_url)
+              post :create
+              response.should redirect_to(protocols_url)
+            end
+
+            it 'should be saved' do
+              post :create
+              assigns[:protocol].should_not be_new_record
+            end
+
+            it 'shoult pass params to protocol' do
+              post :create, :protocol => { :number => protocols(:new_protocol).number }
+              assigns[:protocol].number.should == protocols(:new_protocol).number
             end
         end       
     end
